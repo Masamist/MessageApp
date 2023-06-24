@@ -1,0 +1,25 @@
+.nav {
+  width: 100%;
+  background-color: var(--bg-color);
+  border-bottom: 1px solid #ccc;
+}
+.nav-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+}
+.btn-login {
+  background-color: #48c7b4;
+  width: 5rem;
+}
+
+.title {
+  color: #666666;
+}
+
+@media screen and (max-width: 500px) {
+
+}

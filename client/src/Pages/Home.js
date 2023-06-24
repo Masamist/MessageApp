@@ -19,7 +19,7 @@ const Home = () => {
   useEffect(() => {
     loadData()
   }, [])
-  const deleteContact = (id) => {
+  const deleteMessage = (id) => {
     if(window.confirm("Are you sure you want to delete this message?")){
       axios.delete(`http://localhost:5000/api/remove/${id}`)
       toast.success("The message is deleted successfully")
@@ -28,10 +28,16 @@ const Home = () => {
   }
 
   return (
-    <div style={{marginTop: "80px"}}>
-      <Link to="/create">
-        <button className='btn btn-contact'>Create New Message</button>
-      </Link>
+    <div>
+      <div className='btn-create-container'>
+        <div>
+          <Link to="/create">
+            <button className='btn btn-create'>+ Create New Message</button>
+          </Link>
+        </div>
+        
+      </div>
+
       <table className='style-table'>
         <thead>
           <tr>
@@ -48,7 +54,7 @@ const Home = () => {
           {data.map((item, index) => {
             const startDate = format(new Date(item.start_date), 'yyyy-MM-dd')
             let endDate = format(new Date(item.end_date), 'yyyy-MM-dd')
-            console.log(endDate)
+            // console.log(endDate)
             endDate = endDate === RDS_default_time ? null : endDate
             return (
               <tr key={item.id}>
@@ -63,7 +69,7 @@ const Home = () => {
                     <button className='btn btn-edit'>Edit</button>
                   </Link>
 
-                  <button className='btn btn-delete' onClick={()=> deleteContact(item.id)}>Delete</button>
+                  <button className='btn btn-delete' onClick={()=> deleteMessage(item.id)}>Delete</button>
 
                   <Link to={`/view/${item.id}`}>
                     <button className='btn btn-view'>View</button>

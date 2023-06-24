@@ -32,6 +32,7 @@ const CreateEdit = () => {
       axios.get(`http://localhost:5000/api/get/${id}`)
       .then((resp) => {
         // setState({...resp.data[0]})
+        console.log(resp.data[0].end_date)
         let startDate = resp.data[0].start_date ? format(new Date(resp.data[0].start_date), 'yyy-MM-dd') : ''
         let endDate = resp.data[0].end_date ? format(new Date(resp.data[0].end_date), 'yyy-MM-dd') : ''
         endDate = endDate === RDS_default_time ? null : endDate
@@ -91,9 +92,9 @@ const CreateEdit = () => {
   }
 
   return (
-    <div style={{marginTop: "50px"}}>
-      <form 
-        style={{margin: "auto", padding: "15px", maxWidth: "400px", alignContent: "center"}}
+    <div className='card card-edit'>
+      <h2 className='form-title'>{ id ? "Edit Message" : "Create New Message"}</h2>
+      <form  className='creat-form'
         onSubmit={handleSubmit}
       >
         <label htmlFor="admin_title">Administrator Title</label>

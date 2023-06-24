@@ -31,12 +31,9 @@ const View = () => {
     })
   }, [id])
 
-  //startDate = format(new Date(message.start_date), 'yyy-MM-dd')
-  // const endDate = message.end_date ? format(new Date(message.end_date), 'yyy-MM-dd') : ''
-
   return (
-    <div style={{ marginTop: "150px"}}>
-      <div className='card'>
+    <div>
+      <div className='card card-view'>
         <div className='card-header'>
           <p>Message Detail</p>
         </div>
@@ -66,8 +63,9 @@ const View = () => {
           <br />
           <br />
           <Link to="/">
-            <div className='btn btn-edit'>Go Back</div>
+            <div className='btn btn-goback'>Go Back</div>
           </Link>
+          <br />
         </div>
       </div>
     </div>

@@ -7,6 +7,7 @@ import './App.css'
 import Home from './Pages/Home'
 import CreateEdit from './Pages/CreateEdit'
 import View from './Pages/View'
+import Header from './Components/Header'
 
 
 function App() {
@@ -15,6 +16,7 @@ function App() {
     <div className="App">
       <BrowserRouter>
       <ToastContainer position="top-center" />
+        <Header />
         <Routes>
           <Route path='/' element={<Home />} />
           <Route path='/create' element={<CreateEdit />} />

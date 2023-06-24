@@ -1,3 +1,16 @@
+
+.btn-create-container{
+  padding-top: 2rem;
+  padding-bottom: 1rem;
+  justify-content: center;
+  text-align: end;
+  max-width: 850px;
+  margin: auto;
+}
+.btn-create {
+  background-color: #32a7cf;
+}
+
 .style-table {
   border-collapse: collapse;
   margin: auto;
@@ -8,7 +21,7 @@
 }
 
 .style-table thead tr {
-  background-color: #009879;
+  background-color: #48c7b4;
   color: #ffffff;
   text-align: left;
 }
@@ -27,7 +40,7 @@
 }
 
 .style-table tbodytr:last-of-type {
-  border-bottom: 2px solid #009879;
+  border-bottom: 2px solid #adadac;
 }
 
 .btn {
@@ -44,18 +57,16 @@
 }
 
 .btn-edit {
-  background-color: #008cba;
+  background-color: #45a049;
+  width: 5rem;
 }
 
 .btn-delete {
   background-color: #f44336;
+  width: 5rem;
 }
 .btn-view {
   background-color: #e7e7e7;
   color: black;
-}
-
-.btn-contact {
-  background-color: #e82764;
-  margin-bottom: 10px;
+  width: 5rem;
 }
