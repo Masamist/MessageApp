@@ -9,9 +9,8 @@ import './View.css'
 const View = () => {
   const [message, setMessage] = useState({})
   const { id } =useParams()
-  // const [startDate, setStartDate] = useState()
-  // const [endDate, setEndDate] = useState()
-
+  
+  const RDS_default_time = '1899-11-30'
 
   useEffect(() => {
     axios.get(`http://localhost:5000/api/get/${id}`)
@@ -19,8 +18,9 @@ const View = () => {
     // setMessage({...resp.data[0]}))
       let startDate = resp.data[0].start_date ? format(new Date(resp.data[0].start_date), 'yyy-MM-dd') : ''
       let endDate = resp.data[0].end_date ? format(new Date(resp.data[0].end_date), 'yyy-MM-dd') : ''
-        
-      // console.log(startDate)
+      endDate = endDate === RDS_default_time ? null : endDate
+      // console.log(endDate)
+
       setMessage({
         admin_title: resp.data[0].admin_title, 
         country_code: resp.data[0].country_code, 

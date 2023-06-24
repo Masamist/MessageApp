@@ -10,6 +10,7 @@ import  { toast } from 'react-toastify'
 const Home = () => {
 
   const [ data, setData ] = useState([])
+  const RDS_default_time = '1899-11-30'
 
   const loadData = async () => {
     const response = await axios.get("http://localhost:5000/api/get")
@@ -45,8 +46,10 @@ const Home = () => {
         </thead>
         <tbody>
           {data.map((item, index) => {
-            const startDate = format(new Date(item.start_date), 'yyy-MM-dd')
-            const endDate = item.end_date ? format(new Date(item.end_date), 'yyy-MM-dd') : ''
+            const startDate = format(new Date(item.start_date), 'yyyy-MM-dd')
+            let endDate = format(new Date(item.end_date), 'yyyy-MM-dd')
+            console.log(endDate)
+            endDate = endDate === RDS_default_time ? null : endDate
             return (
               <tr key={item.id}>
                 <th scope="row">{index+1}</th>

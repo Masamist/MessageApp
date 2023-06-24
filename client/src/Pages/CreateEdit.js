@@ -15,6 +15,8 @@ const initialState = {
   end_date: ""
 }
 
+const RDS_default_time = '1899-11-30'
+
 const CreateEdit = () => {
 
   const[state, setState] = useState(initialState)
@@ -32,8 +34,7 @@ const CreateEdit = () => {
         // setState({...resp.data[0]})
         let startDate = resp.data[0].start_date ? format(new Date(resp.data[0].start_date), 'yyy-MM-dd') : ''
         let endDate = resp.data[0].end_date ? format(new Date(resp.data[0].end_date), 'yyy-MM-dd') : ''
-        
-        // console.log(startDate)
+        endDate = endDate === RDS_default_time ? null : endDate
         setState({
           admin_title: resp.data[0].admin_title, 
           country_code: resp.data[0].country_code, 
@@ -52,6 +53,10 @@ const CreateEdit = () => {
     if(!admin_title || !country_code || !text_message || !start_date) {
       toast.error("Please provide value into each input field")
     }else{
+      console.log('end_date'+ end_date)
+      // const checkEndDate = end_date === '' ? null : end_date
+      // setState({...state, [end_date]: checkEndDate})
+      // console.log('checkEndDate'+checkEndDate)
       if(!id){
         axios.post("http://localhost:5000/api/post", {
           admin_title,
