@@ -93,35 +93,35 @@ DELETE FROM messages WHERE id = 2;
 
 
 -- Create test cases for Question 2 in MySQL
--- Test Case 6
--- return ('Manager', 'NZL', 'Kia Ora', '2023-06-24 12:00:00', NULL, 'A')
-CALL GetMessageByCountryDate('NZL', '2023-06-25 12:00:00')
+-- Test Case
 
 DELIMITER //
 
-CREATE TRIGGER `check_procedure_GetMessageByCountryTest`( 
-  IN DepatureCountry CHAR(3), 
-  IN DepatureDateTime DATETIME
-)
+CREATE PROCEDURE `test_GetMessageByCountryDate_return_single_message`()
 
   BEGIN
-    -- Call the stored procedure
-    CALL GetMessageByCountryDate(DepatureCountry, DepatureDateTime)
+    DECLARE assertion_failed INT DEFAULT 0
 
-    -- Check if the update was successful
+    -- Call the stored procedure
+    CALL GetMessageByCountryDate('NZL', '2023-06-25 12:00:00')
+
+    -- Assertion 1: Check if the update was successful
     IF ROW_COUNT() = 0 THEN
       -- Handle assertion failure
+      SET assertion_failed = 1
       SELECT 'Assertion check_procedure_GetMessageByCountryTest failed: No message is returned '
-    END IF;
+    END IF
 
-    -- Check if the update was successful
+    -- Assertion 2: Check if the update was successful
     IF ROW_COUNT() > 1  THEN
+      SET assertion_failed = 1
       -- Handle assertion failure
       SELECT 'Assertion check_procedure_GetMessageByCountryTest failed: multiple messages are returned '
     END IF;
     
-    -- Successful update
+    -- Successful assertion
     SELECT 'Single message is returned';
   END
 
 DELIMITER ;
+
