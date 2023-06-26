@@ -13,7 +13,7 @@ const Home = () => {
   const RDS_default_time = '1899-11-30'
 
   const loadData = async () => {
-    const response = await axios.get("http://localhost:5000/api/get")
+    const response = await axios.get("http://localhost:5000/api/messages")
     setData(response.data)
   }
   useEffect(() => {
@@ -21,7 +21,7 @@ const Home = () => {
   }, [])
   const deleteMessage = (id) => {
     if(window.confirm("Are you sure you want to delete this message?")){
-      axios.delete(`http://localhost:5000/api/remove/${id}`)
+      axios.delete(`http://localhost:5000/api/messages/${id}`)
       toast.success("The message is deleted successfully")
       setTimeout(() => loadData(), 500)
     }
@@ -41,13 +41,13 @@ const Home = () => {
       <table className='style-table'>
         <thead>
           <tr>
-            <th style={{textAlign: "center"}}>No</th>
-            <th style={{textAlign: "center"}}>Administrator Title</th>
-            <th style={{textAlign: "center"}}>Country Code</th>
-            <th style={{textAlign: "center"}}>Text Messages</th>
-            <th style={{textAlign: "center"}}>Start Date</th>
-            <th style={{textAlign: "center"}}>End Date</th>
-            <th style={{textAlign: "center"}}>Action</th>
+            <th>No</th>
+            <th>Administrator Title</th>
+            <th>Country Code</th>
+            <th>Text Messages</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Action</th>
           </tr>
         </thead>
         <tbody>

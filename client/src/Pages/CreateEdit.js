@@ -29,7 +29,7 @@ const CreateEdit = () => {
   // Original
   useEffect(() => {
     if(id){
-      axios.get(`http://localhost:5000/api/get/${id}`)
+      axios.get(`http://localhost:5000/api/messages/${id}`)
       .then((resp) => {
         // setState({...resp.data[0]})
         console.log(resp.data[0].end_date)
@@ -59,7 +59,7 @@ const CreateEdit = () => {
       // setState({...state, [end_date]: checkEndDate})
       // console.log('checkEndDate'+checkEndDate)
       if(!id){
-        axios.post("http://localhost:5000/api/post", {
+        axios.post("http://localhost:5000/api/messages", {
           admin_title,
           country_code,
           text_message,
@@ -71,7 +71,7 @@ const CreateEdit = () => {
         toast.success("Message is created successfully")
         setTimeout(() => navigate("/"), 500)
       } else {
-        axios.put(`http://localhost:5000/api/update/${id}`, {
+        axios.put(`http://localhost:5000/api/messages/${id}`, {
           admin_title,
           country_code,
           text_message,

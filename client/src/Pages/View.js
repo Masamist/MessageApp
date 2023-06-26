@@ -13,7 +13,7 @@ const View = () => {
   const RDS_default_time = '1899-11-30'
 
   useEffect(() => {
-    axios.get(`http://localhost:5000/api/get/${id}`)
+    axios.get(`http://localhost:5000/api/messages/${id}`)
     .then((resp) => {
     // setMessage({...resp.data[0]}))
       let startDate = resp.data[0].start_date ? format(new Date(resp.data[0].start_date), 'yyy-MM-dd') : ''
