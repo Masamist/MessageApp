@@ -1,3 +1,23 @@
+
+Hi, Thank you for assessing my answers. 
+I have completed the 4 questions. Talking about Q1,
+I have not used SQL before so I used MySQL which has no assertions built in, 
+so I have used store procedure to cover this.  
+
+I could have done the Q4 with APS.NET, 
+I have used React, Node, Express and MySQL instead. 
+The app is simple CRUD application so an admin can manage the messages, 
+but it does not have the functionality to sort a single message from the conditions yet.  
+
+The application was fun to create, I would really love to imagine 
+the application from the users perspective and to create a better overall solution. 
+
+I did not allow enough time for testing. 
+It was a great opportunity to work through these questions, 
+it gives me good motivation to keep expanding my skills. 
+
+
+
 --------------
 -- Question 1
 --------------
@@ -11,8 +31,6 @@ CREATE TABLE messages (
   end_date DATETIME,
   message_type CHAR(1) NOTNULL
 );
-
-
 
 
 
@@ -48,8 +66,6 @@ DELIMITER ;
 
 -- Example call
 CALL GetMessageByCountryAndDateTime('NZL', '2023-05-30 12:00:00')
-
-
 
 
 
