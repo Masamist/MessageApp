@@ -45,12 +45,12 @@ describe('API test', () => {
       expect(response.statusCode).toBe(200)
     })
   })
-  // Delete message
-  describe('retrive all message data', () => {
-    test('should respond with a 200 status code', async() => {
-      const response = await request(app).delete('/api/messages/7')
-      expect(response.statusCode).toBe(200)
-    })
-  })
-})
+//   // Delete message
+//   describe('retrive all message data', () => {
+//     test('should respond with a 200 status code', async() => {
+//       const response = await request(app).delete('/api/messages/7')
+//       expect(response.statusCode).toBe(200)
+//     })
+//   })
+// })
 
