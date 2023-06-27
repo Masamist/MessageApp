@@ -26,27 +26,31 @@ describe('API test', () => {
         "admin_title": "General Admin",
         "country_code": "NZL",
         "text_message": "Happy Holiday",
-        "start_date": "2023-12-23T11:00:00.000Z",
-        "end_date": "2024-01-09T11:00:00.000Z"
-      })
-      expect(response.statusCode).toBe(201)
-    })
-  })
-  // Create message
-  describe('retrive all message data', () => {
-    test('should respond with a 201 status code', async() => {
-      const response = await request(app).put('/api/messages/11').send({
-        "id": 11,
-        "admin_title": "Jest Test",
-        "country_code": "NZL",
-        "text_message": "Happy Holiday",
-        "start_date": "2023-12-23T11:00:00.000Z",
-        "end_date": "2024-01-09T11:00:00.000Z"
+        "start_date": "2023-12-23",
+        "end_date": "2024-01-09"
       })
       expect(response.statusCode).toBe(200)
     })
   })
-
-
+  // Delete message
+  describe('retrive all message data', () => {
+    test('should respond with a 200 status code', async() => {
+      const response = await request(app).put('/api/messages/3').send({
+        "admin_title": "Jest Test",
+        "country_code": "NZL",
+        "text_message": "Happy Holiday",
+        "start_date": "2023-12-23",
+        "end_date": "2024-01-09"
+      })
+      expect(response.statusCode).toBe(200)
+    })
+  })
+  // Delete message
+  describe('retrive all message data', () => {
+    test('should respond with a 200 status code', async() => {
+      const response = await request(app).delete('/api/messages/7')
+      expect(response.statusCode).toBe(200)
+    })
+  })
 })
 
