@@ -18,7 +18,9 @@ https://github.com/Masamist/MessageApp.git
 
 2. Install dependencies:
 
-### `npm install`
+```bash
+npm install
+```
 
 install node modules
 
